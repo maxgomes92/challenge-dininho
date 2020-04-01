@@ -37,11 +37,7 @@ function preload () {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-
-  ground.y = windowHeight - ground.img.height;
-  
-  player.x = windowWidth * 0.2;
-  player.y = windowHeight - 240;
+  setupPositioning()
 }
 
 function draw() {
@@ -54,6 +50,12 @@ function draw() {
   ground.x = updateBackgroundPosition(ground);
 
   animatePlayer(player);
+}
+
+function setupPositioning() {
+  ground.y = windowHeight - ground.img.height;
+  player.x = windowWidth * 0.2;
+  player.y = windowHeight - 240;
 }
 
 function animatePlayer({x, y, runningImgs, speed}) {
@@ -83,6 +85,6 @@ function drawBackground ({img, x, y}) {
 }
 
 function windowResized() {
-  ground.y = windowHeight - ground.img.height;
   resizeCanvas(windowWidth, windowHeight);
+  setupPositioning();
 }
