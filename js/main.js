@@ -54,7 +54,7 @@ function setup() {
 }
 
 function draw() {
-  background(255);
+  background('#b5e4e3');
 
   // Updates total time
   totalTime += deltaTime / 1000
